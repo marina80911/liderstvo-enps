@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Лидерство для вовлечённости — v01</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #ffffff;
+        --fg: #1e293b;
+        --muted: #64748b;
+        --border: #e2e8f0;
+        --card: #f8fafc;
+        --accent: #7c3aed;
+        --accent-light: #ede9fe;
+        --warn: #fef3c7;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", sans-serif;
+        background: var(--bg);
+        color: var(--fg);
+        line-height: 1.55;
+      }
+      header {
+        border-bottom: 1px solid var(--border);
+        background: linear-gradient(135deg, #f5f3ff 0%, #ffffff 60%);
+      }
+      .wrap { max-width: 980px; margin: 0 auto; padding: 24px; }
+      h1 { margin: 0 0 8px 0; font-size: 26px; letter-spacing: -0.02em; line-height: 1.25; }
+      .subtitle { color: var(--muted); font-size: 15px; margin-bottom: 4px; }
+      .meta { color: var(--muted); font-size: 14px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+      nav {
+        margin-top: 18px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 8px;
+      }
+      nav a {
+        display: block;
+        text-decoration: none;
+        color: var(--fg);
+        border: 1px solid var(--border);
+        background: #fff;
+        padding: 9px 12px;
+        border-radius: 10px;
+        font-size: 14px;
+      }
+      nav a:hover { border-color: var(--accent); background: var(--accent-light); }
+      section { padding: 22px 0; border-bottom: 1px solid var(--border); }
+      h2 { margin: 0 0 12px 0; font-size: 20px; color: var(--accent); }
+      h3 { margin: 14px 0 8px 0; font-size: 16px; }
+      .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+      @media (max-width: 820px) { .grid2 { grid-template-columns: 1fr; } }
+      .card {
+        border: 1px solid var(--border);
+        background: #fff;
+        border-radius: 12px;
+        padding: 14px 16px;
+      }
+      .card-accent { background: var(--accent-light); border-color: #c4b5fd; }
+      .card-warn { background: var(--warn); border-color: #fde68a; }
+      .hint { color: var(--muted); font-size: 13px; }
+      blockquote {
+        margin: 12px 0;
+        padding: 12px 16px;
+        border-left: 4px solid var(--accent);
+        background: var(--card);
+        border-radius: 0 8px 8px 0;
+        font-style: italic;
+      }
+      table { width: 100%; border-collapse: collapse; font-size: 14px; }
+      th, td { border: 1px solid var(--border); padding: 8px 10px; vertical-align: top; }
+      th { background: var(--card); text-align: left; font-weight: 600; }
+      .pill {
+        display: inline-block;
+        padding: 2px 10px;
+        border-radius: 999px;
+        background: var(--accent-light);
+        color: #5b21b6;
+        border: 1px solid #c4b5fd;
+        font-size: 12px;
+        font-weight: 500;
+      }
+      .hr { height: 1px; background: var(--border); margin: 14px 0; }
+      footer { padding: 24px 0 40px; color: var(--muted); font-size: 13px; }
+      code { background: #f1f5f9; padding: 2px 6px; border-radius: 6px; font-size: 13px; }
+      ul, ol { margin: 8px 0; padding-left: 20px; }
+      li { margin: 4px 0; }
+      .stage-num {
+        display: inline-block;
+        background: var(--accent);
+        color: #fff;
+        width: 28px; height: 28px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 28px;
+        font-size: 13px;
+        font-weight: 700;
+        margin-right: 8px;
+      }
+      .balance-bar {
+        display: flex;
+        height: 24px;
+        border-radius: 6px;
+        overflow: hidden;
+        margin: 10px 0;
+        font-size: 11px;
+        color: #fff;
+        font-weight: 600;
+      }
+      .balance-bar span { display: flex; align-items: center; justify-content: center; }
+      .b-theory { background: #6366f1; width: 25%; }
+      .b-practice { background: #7c3aed; width: 50%; }
+      .b-social { background: #f59e0b; width: 15%; }
+      .b-visual { background: #8b5cf6; width: 10%; }
+      .practices {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 12px 0;
+      }
+      .practices span {
+        background: var(--accent-light);
+        border: 1px solid #c4b5fd;
+        padding: 6px 12px;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 500;
+      }
+      .enps-badge {
+        display: inline-block;
+        background: #fef2f2;
+        border: 1px solid #fecaca;
+        color: #b91c1c;
+        padding: 4px 12px;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 14px;
+      }
+      .enps-target {
+        background: #f0fdf4;
+        border-color: #bbf7d0;
+        color: #15803d;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap">
+        <p class="subtitle">🚀 ПАСПОРТ ПРОГРАММЫ 3.0</p>
+        <h1>«Лидерство для вовлечённости: повышаем eNPS команды»</h1>
+        <div class="meta">
+          <span class="pill">v01</span>
+          <span>Интенсив 4 недели · 12 часов · Смешанный формат</span>
+          <span class="hint">· 2026-07-07 · Статус: готово</span>
+        </div>
+        <div class="meta" style="margin-top:10px">
+          <span class="enps-badge">eNPS сейчас: −15</span>
+          <span>→</span>
+          <span class="enps-badge enps-target">Цель: +10 за 6 мес.</span>
+        </div>
+        <div class="practices" aria-label="5 практик программы">
+          <span>Обратная связь 1:1</span>
+          <span>Признание</span>
+          <span>Прозрачность</span>
+          <span>Психологическая безопасность</span>
+          <span>Благополучие команды</span>
+        </div>
+        <nav aria-label="Оглавление">
+          <a href="#stage1">Этап 1 — Предпроект</a>
+          <a href="#stage2">Этап 2 — Результаты ABCD</a>
+          <a href="#stage3">Этап 3 — Параметры</a>
+          <a href="#stage5">Этап 5 — Таймлайн</a>
+          <a href="#stage4">Этап 4 — Оценивание</a>
+          <a href="#stage6">Этап 6 — Производство</a>
+          <a href="#stage7">Этап 7 — Метрики</a>
+          <a href="#stage8">Этап 8 — Офбординг</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+
+      <section id="stage1">
+        <h2><span class="stage-num">1</span> Предпроектный анализ</h2>
+        <div class="grid2">
+          <div class="card">
+            <h3>Бизнес-заказ</h3>
+            <p>Повысить eNPS (индекс лояльности сотрудников) с −15 до +10 за 6 месяцев через развитие лидерских практик топ-менеджеров. Низкий eNPS — индикатор проблем вовлечённости, а не «задача HR».</p>
+            <p><strong>Учебный запрос:</strong> ежедневные практики вовлечения — обратная связь, признание, эмпатичная коммуникация, профилактика выгорания.</p>
+          </div>
+          <div class="card">
+            <h3>Компетенции</h3>
+            <ul>
+              <li>Лидерство</li>
+              <li>Развитие людей</li>
+              <li>Эффективная коммуникация</li>
+              <li>Забота о благополучии команды</li>
+            </ul>
+            <p class="hint">Аудитория: CEO-1/CEO-2, опыт управления 5+ лет, 50 человек (5 групп по 10).</p>
+          </div>
+        </div>
+        <div class="hr"></div>
+        <div class="card card-accent">
+          <h3>Исследование аудитории (CustDev) — 8 + 15 интервью</h3>
+          <blockquote>«Руководитель общается только когда что-то нужно. Я не чувствую, что мои достижения замечают».</blockquote>
+          <blockquote>«Я знаю, что нужно общаться чаще, но тону в операционке. Не понимаю, как найти время на команду».</blockquote>
+          <p><strong>Решение в дизайне:</strong> микро-практики (5–15 мин), встроенные в ритм; фокус на качестве коммуникации; инструменты быстрого признания и развивающей обратной связи.</p>
+        </div>
+      </section>
+
+      <section id="stage2">
+        <h2><span class="stage-num">2</span> Образовательные результаты (ABCD)</h2>
+        <div class="card card-warn">
+          <p><strong>SMART-цель:</strong> к концу 4-й недели 100% участников внедрят ≥ 3 лидерские практики (подтверждено обратной связью сотрудников) и запустят план повышения eNPS с измеримыми метриками.</p>
+        </div>
+        <div class="hr"></div>
+        <table>
+          <thead>
+            <tr>
+              <th>Образовательный результат (ABCD)</th>
+              <th>Уровень Блума</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>(A)</strong> CEO-1/CEO-2 <strong>(B)</strong> проводит качественные встречи 1:1 <strong>(C)</strong> используя GROW и модель SBI <strong>(D)</strong> 80% сотрудников отмечают рост качества обратной связи</td>
+              <td>Применение</td>
+            </tr>
+            <tr>
+              <td><strong>(A)</strong> CEO-1/CEO-2 <strong>(B)</strong> системно признаёт достижения <strong>(C)</strong> публично и приватно <strong>(D)</strong> ≥ 2 раза в неделю, охват 70% команды</td>
+              <td>Применение</td>
+            </tr>
+            <tr>
+              <td><strong>(A)</strong> CEO-1/CEO-2 <strong>(B)</strong> выстраивает прозрачную коммуникацию <strong>(C)</strong> контекстуализация решений <strong>(D)</strong> ≥ 1 сессия в неделю</td>
+              <td>Применение</td>
+            </tr>
+            <tr>
+              <td><strong>(A)</strong> CEO-1/CEO-2 <strong>(B)</strong> создаёт психологическую безопасность <strong>(C)</strong> активное слушание, нормализация ошибок <strong>(D)</strong> проблемы поднимаются на 30% чаще</td>
+              <td>Применение</td>
+            </tr>
+            <tr>
+              <td><strong>(A)</strong> CEO-1/CEO-2 <strong>(B)</strong> диагностирует и предотвращает выгорание <strong>(C)</strong> чек-лист признаков <strong>(D)</strong> беседа с каждым ключевым сотрудником за месяц</td>
+              <td>Применение</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="stage3">
+        <h2><span class="stage-num">3</span> Параметры и входное оценивание</h2>
+        <div class="grid2">
+          <div class="card">
+            <h3>Параметры</h3>
+            <table>
+              <tr><td>Длительность</td><td>4 недели + онбординг</td></tr>
+              <tr><td>Нагрузка</td><td>12 ч (3 ч/нед: 2,5 асинхрон + 0,5 синхрон)</td></tr>
+              <tr><td>Формат</td><td>Смешанный</td></tr>
+              <tr><td>Группа</td><td>50 человек (5 × 10)</td></tr>
+              <tr><td>Платформа</td><td>LMS + видеоконференция</td></tr>
+            </table>
+          </div>
+          <div class="card">
+            <h3>Входное оценивание</h3>
+            <p><strong>Инструмент:</strong> анализ eNPS команды + самооценка 5 практик (1–5) + мини-опрос команды (3 вопроса).</p>
+            <p><strong>Цель:</strong> базовый уровень и приоритетные зоны роста для каждого участника.</p>
+            <p class="hint"><strong>Out of scope:</strong> стратегия компании, кадровое администрирование, пересмотр компенсаций, терапия выгорания.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="stage5">
+        <h2><span class="stage-num">5</span> Таймлайн и баланс</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Неделя</th>
+              <th>Этап</th>
+              <th>Активности</th>
+              <th>Нагрузка</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>0</strong></td>
+              <td><strong>ОНБОРДИНГ</strong></td>
+              <td>Видео CEO. Анализ eNPS. Самооценка. Группы обмена. Видео-знакомство</td>
+              <td>1 ч</td>
+            </tr>
+            <tr>
+              <td><strong>1</strong></td>
+              <td><strong>ЯДРО:</strong> обратная связь</td>
+              <td>Видео SBI + GROW. Лонгрид. Коучинг в тройках. Встреча 1:1</td>
+              <td>3 ч</td>
+            </tr>
+            <tr>
+              <td><strong>2</strong></td>
+              <td><strong>ЯДРО:</strong> признание</td>
+              <td>Видео «5 уровней признания». Подкаст. Практикум «Карта признания». Практика</td>
+              <td>3 ч</td>
+            </tr>
+            <tr>
+              <td><strong>3</strong></td>
+              <td><strong>ЯДРО:</strong> прозрачность</td>
+              <td>Видео контекстуализации. Лонгрид безопасности. Кейс «Сложный разговор». Сессия с командой</td>
+              <td>3 ч</td>
+            </tr>
+            <tr>
+              <td><strong>4</strong></td>
+              <td><strong>ЯДРО + ОФБОРДИНГ</strong></td>
+              <td>Видео выгорания. Лонгрид заботы. Защита планов. Беседы о благополучии. Сертификат</td>
+              <td>3 ч</td>
+            </tr>
+            <tr>
+              <td>—</td>
+              <td><strong>ПОСТ-ПОДДЕРЖКА</strong></td>
+              <td>Встречи выпускников, рассылка eNPS Insights, замер eNPS (+3 мес.), митап</td>
+              <td>асинхронно</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="hr"></div>
+        <h3>Анализ баланса</h3>
+        <div class="balance-bar" aria-label="Баланс форматов">
+          <span class="b-theory">Теория 25%</span>
+          <span class="b-practice">Практика 50%</span>
+          <span class="b-social">Соц. 15%</span>
+          <span class="b-visual">Нагляд. 10%</span>
+        </div>
+        <p class="hint">Лаборатория изменений eNPS: ценность — в применении и обратной связи от команды, а не в теории.</p>
+      </section>
+
+      <section id="stage4">
+        <h2><span class="stage-num">4</span> Методы оценивания</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Результат</th>
+              <th>Метод</th>
+              <th>Тип оценивания</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Встречи 1:1</td>
+              <td>Запись (с согласия) + обратная связь сотрудника</td>
+              <td><em>Оценивание как обучение</em> (формирующее)</td>
+            </tr>
+            <tr>
+              <td>Признание</td>
+              <td>Лог признаний + опрос команды</td>
+              <td><em>Оценивание как обучение</em> (формирующее)</td>
+            </tr>
+            <tr>
+              <td>Прозрачная коммуникация</td>
+              <td>План коммуникаций + обратная связь</td>
+              <td><em>Оценивание как обучение</em> (формирующее)</td>
+            </tr>
+            <tr>
+              <td>Психологическая безопасность</td>
+              <td>Кейс-разбор + опрос о безопасности</td>
+              <td><em>Оценивание обучения</em> (суммативное)</td>
+            </tr>
+            <tr>
+              <td>Диагностика выгорания</td>
+              <td>Чек-лист бесед + отзывы сотрудников</td>
+              <td><em>Оценивание как обучение</em> (формирующее)</td>
+            </tr>
+            <tr>
+              <td>Эффект на eNPS</td>
+              <td>Замер eNPS через 3 месяца</td>
+              <td><em>Оценивание обучения</em> (суммативное)</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="hr"></div>
+        <div class="card">
+          <h3>Сертификат «Лидер вовлечённости»</h3>
+          <ol>
+            <li>Все 4 модуля, практические задания (минимум 3 из 4).</li>
+            <li>Участие минимум в 2 сессиях обмена между равными.</li>
+            <li>Внедрение ≥ 3 практик (подтверждено командой).</li>
+            <li>План повышения eNPS (порог рубрики 70%).</li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="stage6">
+        <h2><span class="stage-num">6</span> Производство и подготовка</h2>
+        <div class="grid2">
+          <div class="card">
+            <h3>ТЗ на контент</h3>
+            <ul>
+              <li>Приветственное видео CEO (10 мин)</li>
+              <li>4 видео по модулям (30–40 мин)</li>
+              <li>4 лонгрида + подкаст «Признание без бюджета»</li>
+              <li>Модель SBI, GROW, матрица признания, чек-лист выгорания</li>
+              <li>Шаблон «Плана повышения eNPS»</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Роль фасилитатора</h3>
+            <p><strong>Контекст:</strong> топ-лидеры, скепсис к «мягким» практикам, дефицит времени.</p>
+            <p><strong>Роль:</strong> модератор обмена — связь практик и данных eNPS, не «учитель».</p>
+            <p><strong>Запреты:</strong> ПДн и конфиденциальная информация в общих каналах; осуждение низкого eNPS.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="stage7">
+        <h2><span class="stage-num">7</span> Критерии эффективности</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Уровень</th>
+              <th>Метрика</th>
+              <th>Инструмент</th>
+              <th>Цель</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>LMS</td>
+              <td>COR (доля завершения)</td>
+              <td>Статистика LMS</td>
+              <td>&gt; 80%</td>
+            </tr>
+            <tr>
+              <td>Ур. 1</td>
+              <td>NPS (индекс лояльности)</td>
+              <td>Анкета, неделя 4</td>
+              <td>&gt; 50</td>
+            </tr>
+            <tr>
+              <td>Ур. 1</td>
+              <td>Применимость инструментов</td>
+              <td>Анкета 1–5</td>
+              <td>&gt; 4,2</td>
+            </tr>
+            <tr>
+              <td>Ур. 2</td>
+              <td>Качество плана eNPS</td>
+              <td>Рубрика</td>
+              <td>Средний балл &gt; 2,3 из 3</td>
+            </tr>
+            <tr>
+              <td>Ур. 3</td>
+              <td>Применение практик</td>
+              <td>Самоотчёт + опрос команд</td>
+              <td>&gt; 70% — 3+ практики/нед.</td>
+            </tr>
+            <tr>
+              <td>Ур. 3</td>
+              <td>Оценки лидерства</td>
+              <td>Опрос сотрудников</td>
+              <td>Рост на 15%</td>
+            </tr>
+            <tr>
+              <td>Ур. 4</td>
+              <td><strong>eNPS</strong></td>
+              <td>Замер через 3 месяца</td>
+              <td><strong>−15 → +10</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="stage8">
+        <h2><span class="stage-num">8</span> Офбординг и ретроспектива</h2>
+        <table>
+          <thead>
+            <tr><th>Момент</th><th>Действие</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>День окончания</td><td>Сертификат «Лидер вовлечённости», сообщество выпускников, рефлексия</td></tr>
+            <tr><td>+1 месяц</td><td>Чек-ин практик; рассылка «Топ-5 инсайтов»</td></tr>
+            <tr><td>+3 месяца</td><td>Замер eNPS; митап выпускников; обратная связь при отсутствии роста</td></tr>
+            <tr><td>+4 месяца</td><td>Отчёт заказчику; рекомендации по масштабированию</td></tr>
+          </tbody>
+        </table>
+        <div class="hr"></div>
+        <div class="card">
+          <h3>Ретроспектива (шаблон)</h3>
+          <ul>
+            <li><strong>Контент:</strong> конкретность практик для топов, фокус на eNPS, лучшие инструменты.</li>
+            <li><strong>Процесс:</strong> сроки подготовки, реалистичность нагрузки, узкие места.</li>
+            <li><strong>Заказчик:</strong> рост eNPS, собранные метрики, ожидания потока 2.</li>
+            <li><strong>To-Do:</strong> действия на следующий поток.</li>
+          </ul>
+        </div>
+      </section>
+
+      <footer>
+        <div>v01 · 2026-07-07 · Полная версия: <code>02_Паспорт_проекта/Паспорт_проекта.md</code></div>
+      </footer>
+    </main>
+  </body>
+</html>
